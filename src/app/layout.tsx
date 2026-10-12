@@ -32,7 +32,8 @@ const description =
   "CSE graduate specialized in Artificial Intelligence, with a strong foundation in Machine Learning, Data Analytics and Software Development.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  // Render sets RENDER_EXTERNAL_URL during the build, so OG / Twitter image links are absolute on the live site
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? process.env.RENDER_EXTERNAL_URL ?? "http://localhost:3000"),
   title,
   description,
   authors: [{ name: PROFILE.name }],
